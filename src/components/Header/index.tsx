@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { authorizeUser } from '../../lib/auth';
 import useUserInfo from '../../hooks/useUserInfo';
 import { parseAccessToken, getAuthHeader, parseState } from '../../lib/auth';
+import config from '../../config';
 
 function Header() {
   const { user, getUserInfo } = useUserInfo();
@@ -11,14 +12,14 @@ function Header() {
   }, []);
 
   const accessUserInfo = () => {
-    const state = parseState()
+    const state = parseState();
     const storedState = localStorage.getItem('stateKey');
     const accessToken = parseAccessToken();
     if (accessToken && (state == null || state !== storedState)) {
       // alert('There was an error during the authentication');
     } else {
       // localStorage.removeItem('stateKey');
-      if(accessToken){
+      if (accessToken) {
         const header = getAuthHeader(accessToken);
         getUserInfo(header);
       }
@@ -33,13 +34,17 @@ function Header() {
   };
 
   const handleLogout = () => {
-    window.location.href = 'http://localhost:3000/';
-    localStorage.clear()
+    window.location.href = 'https://rooftify.herokuapp.com/';
+    localStorage.clear();
   };
 
   return (
     <HeaderBlock>
-      {user.display_name ? <Button className="userInfo">{user.display_name}</Button> : ''}
+      {user.display_name ? (
+        <Button className="userInfo">{user.display_name}</Button>
+      ) : (
+        ''
+      )}
       {user.display_name ? (
         <Button onClick={handleLogout}>LOG OUT</Button>
       ) : (
