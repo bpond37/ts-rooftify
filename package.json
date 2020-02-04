@@ -54,6 +54,5 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.13"
-  },
-  "proxy": "https://accounts.spotify.com/"
+  }
 }
