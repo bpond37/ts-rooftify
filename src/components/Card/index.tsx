@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 
-
 const CardDiv = styled.div`
   /* height: 100%; */
   /* display: flex; */
@@ -26,7 +25,6 @@ const CardImgDiv = styled.div`
   margin-bottom: 16px;
   background-color: #333;
   border-radius: 50%;
-  
 `;
 
 const CardImg = styled.img`
@@ -36,7 +34,7 @@ const CardImg = styled.img`
   top: 0;
   left: 0;
   border-radius: 50%;
-  :hover{
+  :hover {
     opacity: 80%;
   }
 `;
@@ -50,7 +48,7 @@ const CardName = styled.div`
   /* font-style: */
 `;
 
-const CardContents = styled.div`
+const CardType = styled.div`
   font-size: 12px;
   line-height: 18px;
   text-overflow: ellipsis;
@@ -63,8 +61,6 @@ type CardProps = {
   name: string;
   type: string;
   href: string;
-  // width: number;
-  // height: number;
 };
 
 function Card({ imgUrl, name, type, href }: CardProps) {
@@ -78,7 +74,7 @@ function Card({ imgUrl, name, type, href }: CardProps) {
         </a>
       </CardImgDiv>
       <CardName>{name}</CardName>
-      <CardContents>{type}</CardContents>
+      <CardType>{type}</CardType>
     </CardDiv>
   );
 }
