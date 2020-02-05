@@ -35,7 +35,7 @@ function Header() {
 
   const handleLogout = () => {
     window.location.href = 'https://rooftify.herokuapp.com/';
-    localStorage.clear();
+    localStorage.removeItem('stateKey');
   };
 
   return (

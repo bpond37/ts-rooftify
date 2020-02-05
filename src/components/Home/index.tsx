@@ -10,13 +10,11 @@ import useRecentTracks from '../../hooks/useRecentTracks';
 const SectionDiv = styled.section`
   display: block;
   color: white;
-  
   font-size: 2em;
   font-weight: 600;
   padding: 16px;
   flex: 1;
-  height: 100%;
-  /* overflow-y: scroll; */
+  height: 95%;
 `;
 
 const CardLists = styled.div`
@@ -31,11 +29,10 @@ type selectedProps = {
 };
 
 function Home({ selected }: selectedProps) {
-  
-  const { recentTracks, getUserRecentTracks } = useRecentTracks()
+  const { recentTracks, getUserRecentTracks } = useRecentTracks();
   const { artists, getUserTopArtists } = useTopArtists();
   const { tracks, getUserTopTracks } = useTopTracks();
-  const { user } = useUserInfo()
+  const { user } = useUserInfo();
 
   const accessArtistsAndTracks = () => {
     const state = parseState();
@@ -65,9 +62,7 @@ function Home({ selected }: selectedProps) {
     return (
       <SectionDiv>
         {/* {selected} */}
-        {items[0]
-          ? user.display_name + `'s Top Artists`
-          : 'need to login'}
+        {items[0] ? user.display_name + `'s Top Artists` : 'need to login'}
 
         <CardLists>
           {items[0]
@@ -117,25 +112,25 @@ function Home({ selected }: selectedProps) {
         </CardLists>
       </SectionDiv>
     );
-  } else if(selected ==='recent'){
+  } else if (selected === 'recent') {
     const { items } = recentTracks.items;
     console.log(recentTracks.items.items);
     return (
       <SectionDiv>
         {/* {selected} */}
-        {items[0] ? user.display_name + `'s Recently Played Tracks` : 'need to login'}
+        {items[0]
+          ? user.display_name + `'s Recently Played Tracks`
+          : 'need to login'}
 
         <CardLists>
           {items[0]
             ? items.map(v => (
                 <ArtistCard
                   key={v.played_at}
-                  imgUrl={v.track.album.images[0].url
-                  }
+                  imgUrl={v.track.album.images[0].url}
                   name={v.track.name}
                   type={v.track.type}
-                  href={v.track.album.external_urls.spotify
-                  }
+                  href={v.track.album.external_urls.spotify}
                 />
               ))
             : // <ArtistCard imgUrl={items[0].images[0].url} name={items[0].name} type={items[0].type}/>

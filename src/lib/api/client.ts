@@ -1,5 +1,5 @@
-import axios from 'axios'
-import config from '../../config'
+import axios from 'axios';
+import config from '../../config';
 
 const client = axios.create({
   baseURL: config.API_URL,
@@ -10,4 +10,4 @@ const client = axios.create({
   },
 });
 
-export default client
+export default client;
