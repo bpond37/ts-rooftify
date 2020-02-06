@@ -8,7 +8,7 @@ Rooftify는 스웨덴의 음악 스트리밍 서비스인 Spotify의 API를 활�
 
 ## 개발 환경
  * 개발인원 : 1
- * 기간 : 2019.12 – 진행 중
+ * 기간 : 2019.11 – 12
  * 스택 :
     * 프론트 엔드 : Typescript, React, Redux-Saga
     * 백 엔드 : Spotify Devleloper Web Api, Heroku
